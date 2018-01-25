@@ -1,0 +1,5 @@
+node_modules
+umd
+dist
+.vscode
+test/fixtures/build/

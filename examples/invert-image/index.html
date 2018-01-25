@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <input type="file" id="input" accepts="image/*" name="image">
+  <label for="input">Choose an image</label>
+  <canvas id="c" style="display: block"></canvas>
+  <button id="filter">Invert</button>
+
+  <!-- Usage with module scripts -->
+  <script type="module">
+    import wasmWorkerAPI from '../../dist/client.esm.js'
+    const functions = [
+      {
+        name: 'invert',
+        ret: 'U8',
+        args: ['U8', 'number']
+      }
+    ]
+
+    const worker = new Worker('./worker.js')
+    let api
+
+    async function init () {
+      api = await wasmWorkerAPI(worker, functions)
+      console.log('worker is ready!')
+    }
+
+    init()
+
+    const cx = c.getContext('2d')
+
+    input.addEventListener('change', e => {
+      const img = e.target.files[0]
+
+      createImageBitmap(img).then(bitmap => {
+        c.height = bitmap.height
+        c.width = bitmap.width
+        cx.drawImage(bitmap, 0, 0)
+      })
+    })
+
+    filter.addEventListener('click', async e => {
+      const imgData = cx.getImageData(0, 0, c.width, c.height)
+      const { length } = imgData.data
+      const data = await api.invert(imgData.data, length, length)
+
+      cx.putImageData(new ImageData(data, imgData.width, imgData.height), 0, 0)
+    })
+  </script>
+</body>
+</html>
