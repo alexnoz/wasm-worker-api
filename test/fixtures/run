@@ -29,7 +29,7 @@ esac
 # Substitute placeholder with the absolute path in the `pre.js`,
 # contents of which will be inserted at the beginning of the glue code.
 # We need this so that the `Module` could find the .wasm file.
-sed -e "s/$pathPH/$pathToMod/" < "$path/pre.js" > "$path/$tempPre"
+sed -e "s|$pathPH|$pathToMod|" < "$path/pre.js" > "$path/$tempPre"
 
 echo_yellow Compiling C++...
 
