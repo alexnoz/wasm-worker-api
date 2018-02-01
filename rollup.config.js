@@ -30,10 +30,6 @@ export default [
         file: 'umd/index.min.js',
         format: 'umd',
         name: umdName
-      },
-      {
-        file: 'dist/index.esm.min.js',
-        format: 'es'
       }
     ],
     plugins: [ uglify() ]
