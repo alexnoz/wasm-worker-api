@@ -18,7 +18,7 @@ export default [
         name: umdName
       },
       {
-        file: 'dist/index.esm.js',
+        file: 'dist/index.js',
         format: 'es'
       }
     ]
