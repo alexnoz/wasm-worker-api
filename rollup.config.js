@@ -3,24 +3,22 @@ import uglify from 'rollup-plugin-uglify-es'
 const umdName = 'wasmWorkerAPI'
 const input = 'lib/index.js'
 
-const resolve = (suffix, dir = 'dist') => `${dir}/index${suffix}.js`
-
 export default [
   {
     input,
     output: [
       {
         // cjs build is only needed for tests
-        file: resolve('.cjs'),
+        file: 'dist/index.cjs.js',
         format: 'cjs'
       },
       {
-        file: resolve('', 'umd'),
+        file: 'umd/index.js',
         format: 'umd',
         name: umdName
       },
       {
-        file: resolve('.esm'),
+        file: 'dist/index.esm.js',
         format: 'es'
       }
     ]
@@ -29,12 +27,12 @@ export default [
     input,
     output: [
       {
-        file: resolve('.min', 'umd'),
+        file: 'umd/index.min.js',
         format: 'umd',
         name: umdName
       },
       {
-        file: resolve('.esm.min'),
+        file: 'dist/index.esm.min.js',
         format: 'es'
       }
     ],
