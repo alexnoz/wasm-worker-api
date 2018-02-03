@@ -14,7 +14,7 @@
 
   <!-- Usage with module scripts -->
   <script type="module">
-    import wasmWorkerAPI from '../../dist/client.esm.js'
+    import wasmWorkerAPI from '../../dist/index.js'
     const functions = [
       {
         name: 'invert',
@@ -23,11 +23,10 @@
       }
     ]
 
-    const worker = new Worker('./worker.js')
     let api
 
     async function init () {
-      api = await wasmWorkerAPI(worker, functions)
+      api = await wasmWorkerAPI(functions, 'build/module.js')
       console.log('worker is ready!')
     }
 
