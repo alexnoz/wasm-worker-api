@@ -24,6 +24,8 @@
   "devDependencies": {
     "jest": "^22.0.4",
     "jest-environment-node": "^22.1.0",
+    "jsdom-worker": "alexnoz/jsdom-worker#npm",
+    "node-fetch": "^1.7.3",
     "rollup": "^0.53.4",
     "rollup-plugin-uglify-es": "^0.0.1"
   }
