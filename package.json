@@ -1,6 +1,6 @@
 {
   "name": "wasm-worker-api",
-  "version": "0.0.4",
+  "version": "1.0.0",
   "description": "Call compiled with Emscripten C/C++ functions from JS",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
