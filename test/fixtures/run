@@ -14,7 +14,7 @@ pathPH="<%path%>"
 
 # A absolute path to the folder containing this script.
 # We need this because this script can be run from any directory.
-path=$(echo "$(pwd)/$0" | sed -e "s/$name//")
+path=$(echo "$(pwd)/$0" | sed -e "s/$name//" -e 's/\.\///')
 
 test -d $path$build > /dev/null 2>&1 && rm $path$build -rf
 mkdir $path$build

@@ -16,7 +16,7 @@
     "url": "https://github.com/alexnoz/wasm-worker-api.git"
   },
   "scripts": {
-    "pretest": "yarn run build && sh test/fixtures/run",
+    "pretest": "yarn run build && sh ./test/fixtures/run",
     "test": "jest",
     "clean": "rm -rf dist umd",
     "build": "yarn run clean && rollup -c"
