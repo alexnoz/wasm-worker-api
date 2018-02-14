@@ -1,9 +1,9 @@
 {
   "name": "wasm-worker-api",
-  "version": "0.0.4",
-  "description": "Call compiled with Emscripten C/C++ functions from JS",
-  "main": "dist/client.cjs.js",
-  "module": "dist/client.esm.js",
+  "version": "1.0.0",
+  "description": "Move compiled with Emscripten C/C++ functions into a separate thread",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.js",
   "author": "Alex Nozdriukhin <alex-nozzz@mail.ru>",
   "license": "MIT",
   "files": [
@@ -16,7 +16,7 @@
     "url": "https://github.com/alexnoz/wasm-worker-api.git"
   },
   "scripts": {
-    "pretest": "yarn run build && sh test/fixtures/run",
+    "pretest": "yarn run build && sh ./test/fixtures/run",
     "test": "jest",
     "clean": "rm -rf dist umd",
     "build": "yarn run clean && rollup -c"
@@ -24,6 +24,8 @@
   "devDependencies": {
     "jest": "^22.0.4",
     "jest-environment-node": "^22.1.0",
+    "jsdom-worker": "alexnoz/jsdom-worker#npm",
+    "node-fetch": "^1.7.3",
     "rollup": "^0.53.4",
     "rollup-plugin-uglify-es": "^0.0.1"
   }
