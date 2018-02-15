@@ -1,15 +1,15 @@
 {
   "name": "wasm-worker-api",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Move compiled with Emscripten C/C++ functions into a separate thread",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
   "author": "Alex Nozdriukhin <alex-nozzz@mail.ru>",
   "license": "MIT",
   "files": [
-    "dist",
-    "lib",
-    "umd"
+    "dist/",
+    "lib/",
+    "umd/"
   ],
   "repository": {
     "type": "git",

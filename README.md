@@ -18,7 +18,7 @@ The easiest way to get started is to use a CDN.
 
 Include this in your `index.html`:
 ```html
-  <script src="https://unpkg.com/wasm-worker-api@1.0.0/umd/index.min.js"></script>
+  <script src="https://unpkg.com/wasm-worker-api@1.0.2/umd/index.min.js"></script>
 ```
 Alternatively, you can install it via `yarn` or `npm`:
 ```
@@ -47,7 +47,7 @@ Compile the above C++ file with Emscripten, like this `emcc add.cc -o build/add.
 
 ```html
 <!-- index.html -->
-<script src="https://unpkg.com/wasm-worker-api@1.0.0/umd/index.min.js"></script>
+<script src="https://unpkg.com/wasm-worker-api@1.0.2/umd/index.min.js"></script>
 <script>
   // an array of objects that describe the exported C++ functions
   const functions = [
