@@ -1,0 +1,17 @@
+{
+  "name": "bind-example",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Alex Nozdriukhin <alex-nozzz@mail.ru>",
+  "license": "MIT",
+  "scripts": {
+    "build": "sh ./run && parcel build index.js && http-server ."
+  },
+  "devDependencies": {
+    "http-server": "^0.11.1",
+    "parcel-bundler": "^1.5.1"
+  },
+  "dependencies": {
+    "wasm-worker-api": "^1.0.2"
+  }
+}

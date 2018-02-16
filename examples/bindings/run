@@ -1,0 +1,26 @@
+#!/usr/bin/env/ bash
+
+echo_yellow () {
+  echo -e "\033[33m${@}\033[0m"
+}
+
+build=${1:-"build"}
+file=${2:-"module"}
+name=$(basename "$0")
+
+# A absolute path to the folder containing this script.
+# We need this so that it is possible to run the script from any directory.
+path=$(echo "$(pwd)/$0" | sed -e "s/$name//")
+
+test -d $path$build > /dev/null 2>&1 && rm $path$build -rf
+mkdir -p $path$build
+
+echo_yellow Compiling C++...
+
+# Compilation
+emcc --bind "$path/main.cc" -Oz -o "$path/$build/$file.js" \
+-s WASM=1 -s NO_EXIT_RUNTIME=1 -s ALLOW_MEMORY_GROWTH=1 \
+-s "EXPORTED_RUNTIME_METHODS=['cwrap', 'addOnPostRun']" \
+-s "DEFAULT_LIBRARY_FUNCS_TO_INCLUDE=['malloc', 'free']"
+
+echo_yellow Done

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body {
+      box-sizing: border-box;
+      padding: 1em;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    #results {
+      margin-top: 1em;
+      flex-grow: 1;
+      overflow: auto;
+    }
+    #results > * {
+      margin-bottom: 1em;
+    }
+    .best {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <form action="/" id="form">
+    <label>fib number: <input name="num" type="number" min="0" max="46"></label>
+    <button type="submit">Calculate</button>
+  </form>
+  <div id="results"></div>
+  <script src="/dist/bind-example.js"></script>
+</body>
+</html>
