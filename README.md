@@ -57,13 +57,19 @@ Compile the above C++ file with Emscripten, like this `emcc add.cc -o build/add.
       args: ['number', 'number']
     }
   ]
-
   async function init () {
     // register the functions
-    const api = await wasmWorkerAPI(functions, 'build/add.js')
+
+    // The Emscripten's glue code --------------------------
+    // will be loaded by a web worker,                     |
+    // not by the main thread                              |
+    const { add } = await wasmWorkerAPI(functions, 'build/add.js')
 
     // now ready to call the functions
-    console.log('5 + 2 = %d', await api.add(5, 2))
+
+    // The C++ 'add' function is running in a web worker,
+    // the main thread is free
+    console.log('5 + 2 = %d', await add(5, 2))
   }
 
   init()
