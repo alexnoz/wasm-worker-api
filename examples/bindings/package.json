@@ -5,7 +5,9 @@
   "author": "Alex Nozdriukhin <alex-nozzz@mail.ru>",
   "license": "MIT",
   "scripts": {
-    "build": "sh ./run && parcel build index.js && http-server ."
+    "prebuild": "sh ./run",
+    "build": "parcel build index.js",
+    "start": "http-server ."
   },
   "devDependencies": {
     "http-server": "^0.11.1",
