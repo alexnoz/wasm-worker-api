@@ -1,4 +1,4 @@
-#!/usr/bin/env/ bash
+#!/usr/bin/env bash
 
 echo_yellow () {
   echo -e "\033[33m${@}\033[0m"

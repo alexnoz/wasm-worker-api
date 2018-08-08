@@ -1,4 +1,4 @@
-#!/usr/bin/env/ bash
+#!/usr/bin/env bash
 
 build=${1:-"build"}
 file=${2:-"module"}
