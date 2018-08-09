@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+echo_yellow () {
+  printf "\033[33m${*}\033[0m\n"
+}
+
+if [[ -z $1 ]]; then
+  echo "Pass the example folder as the first arg" 1>&2
+  exit 1
+elif [[ ! -d $1 ]]; then
+  echo "$1 is not a directory" 1>&2
+  exit 1
+fi
+
+example_dir=$1
+build_dir=${2:-"build"}
+file=${3:-"module"}
+name=$(basename "$0")
+
+# A absolute path to the folder containing this script.
+# We need this so that it is possible to run the script from any directory.
+cur_dir=$(echo "$(pwd)/$0" | sed -e "s/$name//" -e "s|\./||")
+
+build_path="$cur_dir$example_dir/$build_dir"
+
+test -d $build_path > /dev/null 2>&1 && rm -rf $build_path
+mkdir -p $build_path
+
+echo_yellow Compiling C++...
+
+# Compilation
+emcc --bind "${cur_dir}$example_dir/main.cc" -Oz -o "$build_path/$file.js" \
+-s WASM=1 -s NO_EXIT_RUNTIME=1 -s ALLOW_MEMORY_GROWTH=1 \
+-s "EXPORTED_RUNTIME_METHODS=['cwrap', 'addOnPostRun']" \
+-s EXPORTED_FUNCTIONS="['_malloc', '_free']"
+
+echo_yellow Done
