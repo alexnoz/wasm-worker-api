@@ -2,11 +2,12 @@ require('jsdom-worker')
 
 const wasmWorkerAPI = require('../dist/index.cjs')
 
+global.Module = require('./fixtures/build/module')
+Module.addOnPostRun = jest.fn(cb => cb())
+
 describe('wasmWorkerAPI', () => {
-  beforeAll(() => {
-    Object.assign(global, { Module: require('./fixtures/build/module') })
-    global.Module.addOnPostRun = jest.fn().mockImplementation(cb => cb())
-  })
+  // Start tests after wasm runtime is initialized
+  beforeAll(() => new Promise(r => Module.onRuntimeInitialized = r))
 
   test('returns an object with the registered functions', async () => {
     const functions =  [
