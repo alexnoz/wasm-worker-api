@@ -5,7 +5,7 @@
   "author": "Alex Nozdriukhin <alex-nozzz@mail.ru>",
   "license": "MIT",
   "scripts": {
-    "prebuild": "cd ..; sh ./run bindings",
+    "prebuild": "cd ..; sh ./compile bindings",
     "build": "parcel build index.js",
     "start": "http-server ."
   },
