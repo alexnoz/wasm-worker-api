@@ -14,7 +14,7 @@ sudo: required
 services:
   - docker
 
-before_install:
+before_script:
   - docker run -dit --name emscripten -v $(pwd):/src trzeci/emscripten:sdk-incoming-64bit bash
 
 script:
