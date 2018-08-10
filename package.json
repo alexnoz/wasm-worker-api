@@ -15,6 +15,13 @@
     "type": "git",
     "url": "https://github.com/alexnoz/wasm-worker-api.git"
   },
+  "keywords": [
+    "wasm",
+    "web assembly",
+    "emscripten",
+    "web worker",
+    "worker"
+  ],
   "scripts": {
     "pretest": "yarn run build && sh ./test/fixtures/run",
     "test": "jest",
