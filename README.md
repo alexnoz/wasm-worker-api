@@ -2,6 +2,8 @@
 
 >A tiny, promise-based library that moves your compiled with [Emscripten](https://kripken.github.io/emscripten-site/docs/introducing_emscripten/about_emscripten.html) C/C++ functions into a separate thread (Web Worker).
 
+[![Build status](https://travis-ci.org/alexnoz/wasm-worker-api.svg?branch=master)](https://travis-ci.org/alexnoz/wasm-worker-api) [![Current version](https://badgen.net/npm/v/wasm-worker-api)](https://www.npmjs.com/package/wasm-worker-api)
+
 **:warning: Warning: *highly* experimental! :warning:**
 
 ## What?
