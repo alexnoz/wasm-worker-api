@@ -1,8 +1,8 @@
 # :rocket: WASM Worker API
 
-A tiny, promise-based library that moves your compiled with [Emscripten](https://kripken.github.io/emscripten-site/docs/introducing_emscripten/about_emscripten.html) C/C++ functions into a separate thread (Web Worker).
+>A tiny, promise-based library that moves your compiled with [Emscripten](https://kripken.github.io/emscripten-site/docs/introducing_emscripten/about_emscripten.html) C/C++ functions into a separate thread (Web Worker).
 
-### :warning: Warning: *highly* experimental! :warning:
+**:warning: Warning: *highly* experimental! :warning:**
 
 ## What?
 
