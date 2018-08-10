@@ -15,4 +15,4 @@ before_script:
   - docker run -dit --name emscripten -v $(pwd):/src trzeci/emscripten:sdk-incoming-64bit bash
 
 script:
-  - docker exec -it emscripten yarn test
+  - docker exec -it emscripten npm i -g yarn && docker exec -it emscripten /emsdk_portable/node/lib/node_modules/yarn/bin/yarn test
