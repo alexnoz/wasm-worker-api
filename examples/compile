@@ -32,6 +32,6 @@ echo_yellow Compiling C++...
 emcc --bind "${cur_dir}$example_dir/main.cc" -Oz -o "$build_path/$file.js" \
 -s WASM=1 -s NO_EXIT_RUNTIME=1 -s ALLOW_MEMORY_GROWTH=1 \
 -s "EXPORTED_RUNTIME_METHODS=['cwrap', 'addOnPostRun']" \
--s EXPORTED_FUNCTIONS="['_malloc', '_free']"
+-s "DEFAULT_LIBRARY_FUNCS_TO_INCLUDE=['malloc', 'free']"
 
 echo_yellow Done
