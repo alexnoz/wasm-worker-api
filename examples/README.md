@@ -1,6 +1,6 @@
 # Examples
 
-> To compile the example's C++ code, run `sh ./compile <example-dir>` from this directory
+> To compile the example's C++ code, run `sh ./compile <example-dir>`
 
 **invert-image** - the invert image filter implemented in C++. This example is rather a proof of concept than a real-world use case since returning arrays from wasm functions is slow due to the work required on the JS side.
 
